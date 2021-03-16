@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemInventory : MonoBehaviour
 {
-    public List<ItemSO> items;
+    [SerializeField] private List<ItemSO> items;
 
     public void AddItem(ItemSO itemToAdd)
     {
@@ -14,5 +14,13 @@ public class ItemInventory : MonoBehaviour
     public void RemoveItem(ItemSO itemToRemove)
     {
         items.Remove(itemToRemove);
+    }
+
+    public bool CompareItem(ItemSO itemToCompare)
+    {
+        if (items.Contains(itemToCompare))
+            return true;
+
+        return false;
     }
 }

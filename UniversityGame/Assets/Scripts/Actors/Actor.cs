@@ -6,21 +6,21 @@ using UnityEngine;
 public class Actor : MonoBehaviour
 {
     [Header("Moving")]
-    public float speed; //Speed of which the actor moves
+    [SerializeField] private float speed; //Speed of which the actor moves
 
     [Header("Jumping")]
-    public float jumpForce; //Force needed for actor jump
-    public Transform isGroundedChecker; //Place to check grounded from
-    public float checkGroundRadius; //Radius of ground checker
-    public LayerMask groundLayer; //Layer ground is on
-    public float coyoteTime; //How long the player can not be touching ground but can still jump
+    [SerializeField] private float jumpForce; //Force needed for actor jump
+    [SerializeField] private Transform isGroundedChecker; //Place to check grounded from
+    [SerializeField] private float checkGroundRadius; //Radius of ground checker
+    [SerializeField] private LayerMask groundLayer; //Layer ground is on
+    [SerializeField] private float coyoteTime; //How long the player can not be touching ground but can still jump
     float lastTimeGrounded; //What time the player was last grounded
     bool isGrounded; //If the player is grounded
 
     [Header("Advanced Jumping Settings")]
-    public bool advancedJumping = true;
-    public float fallMultiplier = 2.5f;
-    public float lowJumpMultiplier = 2f;
+    [SerializeField] public bool advancedJumping = true;
+    [SerializeField] public float fallMultiplier = 2.5f;
+    [SerializeField] public float lowJumpMultiplier = 2f;
 
     Rigidbody2D rb; //RigidBody2D referance
 

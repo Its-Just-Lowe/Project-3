@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public float openSpeed;
-    public float openHeight;
-    public bool itemRequired = false;
-    public ItemSO itemNeeded;
+    [SerializeField] private float openSpeed;
+    [SerializeField] private float openHeight;
+    [SerializeField] private bool itemRequired = false;
+    [SerializeField] private ItemSO itemNeeded;
 
     void OpenDoor()
     {
@@ -26,7 +26,7 @@ public class Door : MonoBehaviour
             ItemInventory playerInv = collision.gameObject.GetComponent<ItemInventory>();
             if(itemRequired)
             {
-                if(playerInv.items.Contains(itemNeeded))
+                if(playerInv.CompareItem(itemNeeded))
                 {
                     playerInv.RemoveItem(itemNeeded);
                     OpenDoor();

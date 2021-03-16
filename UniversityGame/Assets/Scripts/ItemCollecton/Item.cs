@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public ItemSO item;
+    [SerializeField] private ItemSO item;
+    [SerializeField] private GameObject itemSpriteObject;
+
+    private void Start()
+    {
+        itemSpriteObject.GetComponent<SpriteRenderer>().sprite = item.sprite;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,4 +26,5 @@ public class Item : MonoBehaviour
 public class ItemSO : ScriptableObject
 {
     public string name;
+    public Sprite sprite;
 }
